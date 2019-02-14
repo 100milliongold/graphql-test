@@ -3,7 +3,7 @@ graphql + Spring boot 연동예제
 
 ## 실행방법
 
-1. docker container 생성 
+1. docker container 생성
 
 ``` shell
 docker run -d \
@@ -17,5 +17,9 @@ mariadb:latest \
 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 ```
 
+2. spring project 실행
 
-
+3. generatedata.sql input
+```
+cat generatedata.sql | docker exec -i  spring-jpa-test /usr/bin/mysql -u root --password=root db_example
+```
