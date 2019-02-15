@@ -10,20 +10,24 @@ import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.leangen.graphql.annotations.GraphQLQuery;
+
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @GraphQLQuery(name = "id", description = "A user's id")
     private Integer id;
-
+    @GraphQLQuery(name = "name", description = "A user's name")
     private String name;
-
+    @GraphQLQuery(name = "email", description = "A user's email")
     private String email;
-    
+
     @Lob
+    @GraphQLQuery(name = "comment", description = "user massage")
     private String comment;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date create_time;
 
@@ -66,7 +70,6 @@ public class User {
 	public void setCreate_time(Date create_time) {
 		this.create_time = create_time;
 	}
-    
-    
-}
 
+
+}

@@ -20,6 +20,7 @@ mariadb:latest \
 2. spring project 실행
 
 3. generatedata.sql input
-```
+
+```sql
 cat generatedata.sql | docker exec -i  spring-jpa-test /usr/bin/mysql -u root --password=root db_example
 ```
